@@ -6,12 +6,25 @@ usecase "Voir les tâches" as UC2
 usecase "Modifier une tâche" as UC3
 usecase "Supprimer une tâche" as UC4
 usecase "Organiser les tâches par catégorie" as UC5
-usecase "Compléter une tâche" as UC7
+usecase "Compléter une tâche" as UC6
+usecase "Sign In" as UC7
+usecase "Login" as UC8
 
 Utilisateur --> UC1 : "Ajoute une nouvelle tâche"
 Utilisateur --> UC2 : "Consulte ses tâches"
 Utilisateur --> UC3 : "Met à jour une tâche existante"
 Utilisateur --> UC4 : "Supprime une tâche"
 Utilisateur --> UC5 : "Classifie les tâches"
-Utilisateur --> UC7 : "Marque une tâche comme complétée"
+Utilisateur --> UC6 : "Marque une tâche comme complétée"
+Utilisateur --> UC7 : "Permet de creer son compte"
+Utilisateur --> UC8 : "Permet de se connecter"
+
+Utilisateur -> (Se connecter)
+Utilisateur -> (Creer un compte)
+
+(Se connecter) --> (Créer une tâche)
+(Se connecter) --> (Modifier une tâche)
+(Se connecter) --> (Supprimer une tâche)
+(Se connecter) --> (Organiser les tâches par catégorie)
+(Se connecter) --> (Compléter une tâche)
 @enduml

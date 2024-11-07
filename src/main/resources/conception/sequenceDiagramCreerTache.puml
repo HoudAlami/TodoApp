@@ -1,0 +1,19 @@
+@startuml
+actor Utilisateur
+participant "Système" as System
+participant Tache
+
+Utilisateur -> System : Se connecter(email, motDePasse)
+System -> Utilisateur : Retourne la page d'accueil (connecté)
+
+Utilisateur -> System : Consulter la liste des tâches
+System -> Utilisateur : Liste des tâches
+
+Utilisateur -> System : Cliquer sur "Créer une tâche"
+System -> Utilisateur : Affiche le formulaire de création
+Utilisateur -> System : Remplir et valider le formulaire
+System -> Tache : Créer une nouvelle tâche (avec les infos du formulaire)
+Tache -> System : Retourne la tâche créée
+System -> Utilisateur : Redirige vers la page d'accueil et affiche la tâche créée
+
+@enduml
