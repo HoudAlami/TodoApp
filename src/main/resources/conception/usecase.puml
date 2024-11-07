@@ -1,0 +1,17 @@
+@startuml
+actor Utilisateur
+
+usecase "Créer une tâche" as UC1
+usecase "Voir les tâches" as UC2
+usecase "Modifier une tâche" as UC3
+usecase "Supprimer une tâche" as UC4
+usecase "Organiser les tâches par catégorie" as UC5
+usecase "Compléter une tâche" as UC7
+
+Utilisateur --> UC1 : "Ajoute une nouvelle tâche"
+Utilisateur --> UC2 : "Consulte ses tâches"
+Utilisateur --> UC3 : "Met à jour une tâche existante"
+Utilisateur --> UC4 : "Supprime une tâche"
+Utilisateur --> UC5 : "Classifie les tâches"
+Utilisateur --> UC7 : "Marque une tâche comme complétée"
+@enduml
