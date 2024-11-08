@@ -1,0 +1,14 @@
+@startuml
+actor Utilisateur
+participant "Système" as System
+participant DB
+
+Utilisateur -> System : Se connecter(email, motDePasse)
+System -> DB : Vérifie les informations d'authentification
+DB -> System : Résultat de la vérification (authentifié ou non)
+alt Authentifié
+    System -> Utilisateur : Retourne la page d'accueil (connecté)
+else Non authentifié
+    System -> Utilisateur : Affiche message d'erreur
+end
+@enduml

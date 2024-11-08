@@ -1,0 +1,29 @@
+@startuml
+class Utilisateur {
+    - id : int
+    - pseudo : String
+    - motDePasse : String
+    - estAuthentifie : boolean
+    + creerCompte(pseudo : String, motDePasse : String) : Utilisateur
+    + seConnecter(pseudo : String, motDePasse : String) : Utilisateur
+    + seDeconnecter() : void
+    + creerTache(titre : String, description : String) : Tache
+    + supprimerTache(tache : Tache) : void
+    + organiserParCategorie(categorie : String) : List<Tache>
+}
+
+class Tache {
+    - id : int
+    - titre : String
+    - description : String
+    - dateLimite : Date
+    - statut : String
+    - categorie : String
+    - estComplete : boolean
+    + completerTache() : void
+    + modifierTache(titre : String, description : String, dateLimite : Date, statut : String) : void
+}
+
+Utilisateur "1" --> "*" Tache : crée
+
+@enduml
