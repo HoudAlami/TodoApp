@@ -1,0 +1,18 @@
+@startuml
+actor Utilisateur
+participant "Système" as System
+participant Tache
+participant DB
+
+Utilisateur -> System : Se connecter(email, motDePasse)
+System -> DB : Vérifie les informations d'authentification
+DB -> System : Résultat de la vérification (authentifié ou non)
+alt Authentifié
+    System -> Utilisateur : Affiche la liste des tâches
+    Utilisateur -> System : Coche la case 'compléter' sur la tâche
+    System -> Tache : completerTache()
+    Tache -> DB : Met à jour le statut de la tâche dans la DB
+    DB -> Tache : Statut de la tâche mis à jour
+    System -> Utilisateur : Affiche la tâche mise à jour avec statut "complétée"
+end
+@enduml

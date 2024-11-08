@@ -1,0 +1,16 @@
+@startuml
+actor Utilisateur
+participant "Système" as System
+participant UtilisateurDB as DB
+
+Utilisateur -> System : Remplir le formulaire de création de compte (pseudo, mot de passe)
+System -> UtilisateurDB : Vérifier si l'email/pseudo est déjà utilisé
+UtilisateurDB -> System : Résultat de la vérification (disponible ou déjà pris)
+alt Si l'email/pseudo est disponible
+    System -> UtilisateurDB : Créer un nouveau compte utilisateur
+    UtilisateurDB -> System : Confirmation de la création du compte
+    System -> Utilisateur : Affiche message de succès et redirige vers la page de connexion
+else Si l'email/pseudo est déjà pris
+    System -> Utilisateur : Affiche message d'erreur (email/pseudo déjà pris)
+end
+@enduml

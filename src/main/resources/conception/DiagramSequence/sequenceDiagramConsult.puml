@@ -1,0 +1,14 @@
+@startuml
+actor Utilisateur
+participant "Système" as System
+participant DB
+
+Utilisateur -> System : Se connecter(email, motDePasse)
+System -> DB : Vérifie les informations d'authentification
+DB -> System : Résultat de la vérification (authentifié ou non)
+alt Authentifié
+    System -> DB : Récupère les tâches depuis la DB
+    DB -> System : Liste des tâches
+    System -> Utilisateur : Affiche la liste des tâches
+end
+@enduml
