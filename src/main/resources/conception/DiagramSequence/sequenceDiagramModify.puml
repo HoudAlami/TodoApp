@@ -1,6 +1,7 @@
 @startuml
 actor Utilisateur
 participant "Système" as System
+participant TodoList
 participant Tache
 participant DB
 
@@ -11,11 +12,17 @@ alt Authentifié
     System -> Utilisateur : Retourne la page d'accueil (connecté)
 
     Utilisateur -> System : Consulter la liste des tâches
-    System -> DB : Récupère les tâches depuis la DB
-    DB -> System : Liste des tâches
+    System -> TodoList : Demande les tâches
+    TodoList -> DB : Récupère les tâches depuis la DB
+    DB -> TodoList : Liste des tâches
+    TodoList -> System : Liste des tâches
     System -> Utilisateur : Liste des tâches
 
     Utilisateur -> System : Sélectionner une tâche
+    System -> TodoList : Demander les détails de la tâche
+    TodoList -> DB : Récupère les détails de la tâche
+    DB -> TodoList : Détails de la tâche
+    TodoList -> System : Détails de la tâche
     System -> Utilisateur : Affiche le détail de la tâche
 
     Utilisateur -> System : Cliquer sur "Modifier la tâche"
@@ -25,6 +32,7 @@ alt Authentifié
     Tache -> DB : Met à jour la tâche dans la DB
     DB -> Tache : Confirmation de la mise à jour
     System -> Utilisateur : Redirige vers la page d'accueil et affiche la tâche modifiée
+    System -> Utilisateur : Affiche un message de succès (modification réussie)
 
 end
 @enduml

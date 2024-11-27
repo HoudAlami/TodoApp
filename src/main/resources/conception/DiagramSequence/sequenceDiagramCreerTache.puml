@@ -1,6 +1,7 @@
 @startuml
 actor Utilisateur
 participant "Système" as System
+participant TodoList
 participant Tache
 participant DB
 
@@ -11,9 +12,10 @@ alt Authentifié
     Utilisateur -> System : Demande de création d'une tâche
     System -> Utilisateur : Affiche le formulaire de création
     Utilisateur -> System : Remplir et soumettre le formulaire
-    System -> Tache : creerTache(titre, description, etc.)
-    Tache -> DB : Enregistrer la tâche dans la DB
-    DB -> Tache : Confirmation de l'enregistrement
+    System -> TodoList : ajouterTache(titre, description, etc.)
+    TodoList -> Tache : Instancier une nouvelle Tache
+    TodoList -> DB : Enregistrer la tâche dans la DB
+    DB -> TodoList : Confirmation de l'enregistrement
     System -> Utilisateur : Affiche la tâche créée sur la page d'accueil
 end
 @enduml

@@ -1,6 +1,7 @@
 @startuml
 actor Utilisateur
 participant "Système" as System
+participant TodoList
 participant Tache
 participant DB
 
@@ -8,17 +9,21 @@ Utilisateur -> System : Se connecter(email, motDePasse)
 System -> DB : Vérifie les informations d'authentification
 DB -> System : Résultat de la vérification (authentifié ou non)
 alt Authentifié
-    System -> Utilisateur : Affiche la liste des tâches
+    System -> TodoList : Affiche la liste des tâches
+    TodoList -> DB : Récupère la liste des tâches
+    DB -> TodoList : Liste des tâches
+    TodoList -> System : Liste des tâches
     Utilisateur -> System : Sélectionne une tâche
     Utilisateur -> System : Clique sur "Supprimer la tâche"
     System -> Utilisateur : Ouvre la modal de confirmation
     alt Valider la suppression
-        System -> Tache : Supprimer la tâche
+        System -> TodoList : Supprimer la tâche
+        TodoList -> Tache : Supprimer la tâche
         Tache -> DB : Supprime la tâche dans la DB
         DB -> Tache : Confirmation de suppression
         System -> Utilisateur : Redirige vers la page d'accueil
     else Ne pas valider la suppression
         System -> Utilisateur : Retour sur le détail de la tâche
-end
+    end
 end
 @enduml

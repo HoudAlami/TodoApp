@@ -7,9 +7,15 @@ class Utilisateur {
     + creerCompte(pseudo : String, motDePasse : String) : Utilisateur
     + seConnecter(pseudo : String, motDePasse : String) : Utilisateur
     + seDeconnecter() : void
-    + creerTache(titre : String, description : String) : Tache
+    + getTodoList() : TodoList
+}
+
+class TodoList {
+    - id : int
+    - taches : List<Tache>
+    + ajouterTache(tache : Tache) : void
     + supprimerTache(tache : Tache) : void
-    + organiserParCategorie(categorie : String) : List<Tache>
+    + getTachesParCategorie(categorie : String) : List<Tache>
 }
 
 class Tache {
@@ -17,13 +23,18 @@ class Tache {
     - titre : String
     - description : String
     - dateLimite : Date
-    - statut : String
+    - statut : Statut
     - categorie : String
-    - estComplete : boolean
     + completerTache() : void
-    + modifierTache(titre : String, description : String, dateLimite : Date, statut : String) : void
+    + modifierTache(titre : String, description : String, dateLimite : Date, statut : Statut) : void
 }
 
-Utilisateur "1" --> "*" Tache : crée
+enum Statut {
+    A_FAIRE
+    EN_COURS
+    TERMINEE
+}
 
+Utilisateur "1" --> "1" TodoList : possède
+TodoList "1" --> "*" Tache : contient
 @enduml
