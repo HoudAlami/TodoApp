@@ -4,18 +4,20 @@ class Utilisateur {
     - pseudo : String
     - motDePasse : String
     - estAuthentifie : boolean
-    + creerCompte(pseudo : String, motDePasse : String) : Utilisateur
-    + seConnecter(pseudo : String, motDePasse : String) : Utilisateur
+    - Todolist : todolist
+    + creerCompte(pseudo : String, motDePasse : String) : Utilisateur (service)
+    + seConnecter(pseudo : String, motDePasse : String) : Utilisateur (service)
     + seDeconnecter() : void
-    + getTodoList() : TodoList
+
 }
 
 class TodoList {
     - id : int
     - taches : List<Tache>
+    + getTodoList() : TodoList (service)
     + ajouterTache(tache : Tache) : void
     + supprimerTache(tache : Tache) : void
-    + getTachesParCategorie(categorie : String) : List<Tache>
+    + getTachesParCategorie(categorie : String) : List<Tache> (service)
 }
 
 class Tache {
@@ -35,6 +37,9 @@ enum Statut {
     TERMINEE
 }
 
-Utilisateur "1" --> "1" TodoList : possède
-TodoList "1" --> "*" Tache : contient
+Utilisateur "0" --> "1" TodoList : possède
+TodoList "1" --> "1" Utilisateur : appartient à
+TodoList "0" --> "N" Tache : contient
+Tache "1" --> "1" TodoList : appartient à
+
 @enduml
