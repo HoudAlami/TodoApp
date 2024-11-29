@@ -1,0 +1,12 @@
+@startuml
+start
+:Utilisateur entre email et mot de passe;
+:Vérification des informations d'authentification;
+if (Informations correctes ?) then (oui)
+  :Retourner la page d'accueil;
+  :Afficher les tâches;
+else (non)
+  :Afficher message d'erreur;
+endif
+stop
+@enduml

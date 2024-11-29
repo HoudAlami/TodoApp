@@ -1,0 +1,7 @@
+@startuml
+[*] --> ListeVide : Initialisation
+ListeVide --> ListePartiellementRemplie : Ajouter une tâche
+ListePartiellementRemplie --> ListePleine : Ajouter d'autre taches
+ListePleine --> ListeFiltrée : Appliquer un filtre
+ListeFiltrée --> ListeSansFiltre : Enlever le filtre
+@enduml

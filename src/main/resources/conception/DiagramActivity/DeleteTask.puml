@@ -1,0 +1,12 @@
+@startuml
+start
+:Utilisateur sélectionne la tâche à supprimer;
+:Afficher une demande de confirmation de suppression;
+if (Utilisateur confirme ?) then (oui)
+  :Supprimer la tâche dans la base de données;
+  :Confirmer la suppression à l'utilisateur;
+else (non)
+  :Annuler la suppression et retourner à la liste des tâches;
+endif
+stop
+@enduml

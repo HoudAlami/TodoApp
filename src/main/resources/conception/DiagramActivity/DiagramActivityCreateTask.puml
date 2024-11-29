@@ -1,0 +1,14 @@
+@startuml
+start
+:Utilisateur remplit le formulaire de création de tâche;
+:Vérifier les informations de la tâche (titre, description, etc.);
+if (Informations valides ?) then (oui)
+  :Créer la tâche dans la base de données;
+  :Confirmer la création de la tâche;
+  :Afficher la tâche créée à l'utilisateur;
+else (non)
+  :Afficher un message d'erreur sur les informations manquantes;
+  --> [Revenir au début] :Utilisateur remplit le formulaire de création de tâche;
+endif
+stop
+@enduml

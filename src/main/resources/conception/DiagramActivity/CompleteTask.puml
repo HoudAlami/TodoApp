@@ -1,0 +1,12 @@
+@startuml
+start
+:Utilisateur sélectionne la tâche à marquer comme terminée;
+:Vérifier si la tâche est déjà terminée;
+if (Tâche déjà terminée ?) then (oui)
+  :Afficher un message indiquant que la tâche est déjà terminée;
+else (non)
+  :Mettre à jour le statut de la tâche à "terminée";
+  :Confirmer la mise à jour à l'utilisateur;
+endif
+stop
+@enduml

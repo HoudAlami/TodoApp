@@ -1,0 +1,13 @@
+@startuml
+start
+:Utilisateur demande à trier les tâches par catégorie;
+:Vérifier si l'utilisateur est authentifié;
+if (Utilisateur authentifié ?) then (oui)
+  :Récupérer les tâches depuis la base de données;
+  :Trier les tâches selon la catégorie;
+  :Afficher les tâches triées à l'utilisateur;
+else (non)
+  :Rediriger l'utilisateur vers la page de connexion;
+endif
+stop
+@enduml

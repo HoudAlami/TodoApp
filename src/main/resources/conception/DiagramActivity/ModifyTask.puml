@@ -1,0 +1,15 @@
+
+@startuml
+start
+:Utilisateur sélectionne la tâche à modifier;
+:Afficher les détails de la tâche;
+:Utilisateur modifie les informations de la tâche (titre, description, etc.);
+:Vérifier les modifications;
+if (Modifications valides ?) then (oui)
+  :Mettre à jour la tâche dans la base de données;
+  :Confirmer la mise à jour à l'utilisateur;
+else (non)
+  :Afficher un message d'erreur pour les modifications incorrectes;
+endif
+stop
+@enduml

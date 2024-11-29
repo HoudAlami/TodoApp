@@ -1,0 +1,8 @@
+@startuml
+[*] --> NonCommencée : Tâche créée
+NonCommencée --> EnCours : Commencer la tâche
+EnCours --> Complétée : Marquer comme complétée
+Complétée --> [*] : Tâche terminée
+EnCours --> Supprimée : Supprimer la tâche
+NonCommencée --> Supprimée : Supprimer la tâche
+@enduml

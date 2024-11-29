@@ -1,0 +1,5 @@
+@startuml
+[*] --> NonAuthentifie : Initialisation
+NonAuthentifie --> Authentifie : Connexion réussie
+Authentifie --> NonAuthentifie : Déconnexion
+@enduml

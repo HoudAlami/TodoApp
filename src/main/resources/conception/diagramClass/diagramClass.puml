@@ -14,6 +14,7 @@ class Utilisateur {
 class TodoList {
     - id : int
     - taches : List<Tache>
+    - User : user
     + getTodoList() : TodoList (service)
     + ajouterTache(tache : Tache) : void
     + supprimerTache(tache : Tache) : void

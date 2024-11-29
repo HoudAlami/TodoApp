@@ -1,0 +1,12 @@
+@startuml
+start
+:Utilisateur demande la liste des tâches;
+:Vérification de la connexion de l'utilisateur;
+if (Utilisateur authentifié ?) then (oui)
+  :Récupérer la liste des tâches depuis la DB;
+  :Afficher la liste des tâches;
+else (non)
+  :Rediriger vers la page de connexion;
+endif
+stop
+@enduml
