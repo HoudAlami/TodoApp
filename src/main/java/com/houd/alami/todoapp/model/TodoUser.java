@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity // J'indique qu'il s'agit d'une entité de ma BDD
-public class User {
+public class TodoUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -20,13 +20,13 @@ public class User {
     @JoinColumn(name = "todolist_id")
     private TodoList todoList;
 
-    public User() {
+    public TodoUser() {
         // Constructeur utilisé par JPA
 
     }
 
     // J'indique dans le constructeur les valeurs qui ne changeront jamais, qui seront instancié directement à la création de l'objet
-    public User(String pseudo, String password) {
+    public TodoUser(String pseudo, String password) {
         this.pseudo = pseudo;
         this.password = password;
         // Je n'indique pas isAuth car cette valeur sera modifié dynamiquement

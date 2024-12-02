@@ -17,7 +17,7 @@ public class TodoList {
 
     @OneToOne(mappedBy = "todoList") // Relation de type "One to One" avec la classe "User". "mappedBy" signifie que l'entité "User"
     // gère la relation (la clé étrangère est dans la table "User").
-    private User user; // L'utilisateur associé à cette TodoList.
+    private TodoUser todoUser; // L'utilisateur associé à cette TodoList.
 
     @OneToMany(mappedBy = "todoList", cascade = CascadeType.ALL) // Relation "One to Many" avec la classe "Task". "mappedBy" indique que l'attribut
     // "todoList" de "Task" est responsable de la relation.
@@ -29,9 +29,9 @@ public class TodoList {
     }
 
     // Constructeur personnalisé pour créer une TodoList avec un nom et un utilisateur.
-    public TodoList(String name, User user) {
+    public TodoList(String name, TodoUser todoUser) {
         this.name = name; // Initialisation de l'attribut "name" avec le nom passé en paramètre.
-        this.user = user; // Initialisation de l'attribut "user" avec l'utilisateur passé en paramètre.
+        this.todoUser = todoUser; // Initialisation de l'attribut "user" avec l'utilisateur passé en paramètre.
         //Pas d'initialisation de tâche
     }
 
@@ -46,12 +46,12 @@ public class TodoList {
     }
 
     // Getter pour l'utilisateur associé à la TodoList
-    public User getUser() {
-        return user; // Retourne l'utilisateur associé à cette TodoList.
+    public TodoUser getTodoUser() {
+        return todoUser; // Retourne l'utilisateur associé à cette TodoList.
     }
 
     // Setter pour l'utilisateur associé à la TodoList
-    public void setUser(User user) {
-        this.user = user; // Assigne l'utilisateur à l'attribut "user".
+    public void setUser(TodoUser todoUser) {
+        this.todoUser = todoUser; // Assigne l'utilisateur à l'attribut "user".
     }
 }
