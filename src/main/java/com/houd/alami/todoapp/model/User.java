@@ -1,13 +1,18 @@
 package com.houd.alami.todoapp.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity // J'indique qu'il s'agit d'une entité de ma BDD
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotNull(message = "Le pseudo est obligatoire")
     private String pseudo;
+
+    @NotNull(message = "Le mot de passe est obligatoire")
     private String password;
     private boolean isAuth = false;
 
@@ -17,6 +22,7 @@ public class User {
 
     public User() {
         // Constructeur utilisé par JPA
+
     }
 
     // J'indique dans le constructeur les valeurs qui ne changeront jamais, qui seront instancié directement à la création de l'objet
