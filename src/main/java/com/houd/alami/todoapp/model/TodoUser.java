@@ -45,6 +45,8 @@ public class TodoUser {
     public Boolean isAuth() {
         return isAuth;
     }
+
+
     // Pas de setter car cette donnée sera modifié directement dans le service pour respecter la logique métier
 
 
