@@ -3,6 +3,7 @@ package com.houd.alami.todoapp.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+
 @Entity // J'indique qu'il s'agit d'une entité de ma BDD
 public class TodoUser {
     @Id
@@ -14,8 +15,6 @@ public class TodoUser {
 
     @NotNull(message = "Le mot de passe est obligatoire")
     private String password;
-    @NotNull(message = "Le rôle est obligatoire")
-    private String role;
     private boolean isAuth = false;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -28,26 +27,30 @@ public class TodoUser {
     }
 
     // J'indique dans le constructeur les valeurs qui ne changeront jamais, qui seront instancié directement à la création de l'objet
-    public TodoUser(String pseudo, String password, String role) {
+    public TodoUser(String pseudo, String password) {
         this.pseudo = pseudo;
         this.password = password;
-        this.role = role;
         // Je n'indique pas isAuth car cette valeur sera modifié dynamiquement
     }
 
     public String getPseudo() {
         return pseudo;
     }
-    // Pas de setter car cette donnée ne changera pas dans le futur
+
+    public String setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+        return pseudo;
+    }
 
     public String getPassword() {
         return password;
     }
-    // Pas de setter car cette donnée ne changera pas dans le futur
 
-    public String getRole() {
-        return role;
+    public String setPassword(String password) {
+        this.password = password;
+        return password;
     }
+
 
     public Boolean isAuth() {
         return isAuth;
