@@ -1,6 +1,6 @@
 package com.houd.alami.todoapp.model;
 
-import com.houd.alami.todoapp.Enums.Status;
+import com.houd.alami.todoapp.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 

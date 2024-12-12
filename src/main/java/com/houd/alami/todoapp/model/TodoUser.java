@@ -14,6 +14,8 @@ public class TodoUser {
 
     @NotNull(message = "Le mot de passe est obligatoire")
     private String password;
+    @NotNull(message = "Le rôle est obligatoire")
+    private String role;
     private boolean isAuth = false;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -26,9 +28,10 @@ public class TodoUser {
     }
 
     // J'indique dans le constructeur les valeurs qui ne changeront jamais, qui seront instancié directement à la création de l'objet
-    public TodoUser(String pseudo, String password) {
+    public TodoUser(String pseudo, String password, String role) {
         this.pseudo = pseudo;
         this.password = password;
+        this.role = role;
         // Je n'indique pas isAuth car cette valeur sera modifié dynamiquement
     }
 
@@ -41,6 +44,10 @@ public class TodoUser {
         return password;
     }
     // Pas de setter car cette donnée ne changera pas dans le futur
+
+    public String getRole() {
+        return role;
+    }
 
     public Boolean isAuth() {
         return isAuth;

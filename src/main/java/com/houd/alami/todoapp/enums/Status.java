@@ -1,4 +1,4 @@
-package com.houd.alami.todoapp.Enums;
+package com.houd.alami.todoapp.enums;
 
 public enum Status {
     TODO("A faire"), // Statut à faire avec sa description
